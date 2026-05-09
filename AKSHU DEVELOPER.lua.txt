@@ -1,0 +1,291 @@
+
+
+
+
+
+off = " ㅤ[❌]"
+on = " ㅤ[🍏]"
+
+SL = off
+
+function TOGGLE_COMBO()
+    gg.setRanges(gg.REGION_C_ALLOC | gg.REGION_ANONYMOUS)
+
+    if SL == off then
+        gg.searchNumber("h 00 00 80 40 33 33 93 40 3D 0A F7 3F", gg.TYPE_BYTE)
+        gg.getResults(100)
+        gg.editAll("h 00 00 80 40 00 00 80 40 CB D2 4D 3E", gg.TYPE_BYTE)
+        gg.clearResults()
+        gg.toast("✅ SLOW MOVEMENT ON")
+        SL = on
+    elseif SL == on then
+        gg.searchNumber("h 00 00 80 40 00 00 80 40 CB D2 4D 3E", gg.TYPE_BYTE)
+        gg.getResults(100)
+        gg.editAll("h 00 00 80 40 33 33 93 40 3D 0A F7 3F", gg.TYPE_BYTE)
+        gg.clearResults()
+        gg.toast("❌ SLOW MOVEMENT OFF")
+        SL = off
+    end
+end
+
+pcState = false
+function PCLOGO()
+    gg.setRanges(gg.REGION_ANONYMOUS)
+    
+    if pcState == false then
+        gg.searchNumber("00 00 80 3F 00 00 00 00 00 00 00 00 00 00 80 BF 00 00 00 00 00 00 80 BF", gg.TYPE_BYTE)
+        gg.getResults(100)
+        gg.editAll("00 00 80 3F 00 00 00 00 00 00 00 00 00 00 80 BF 00 00 00 00 00 00 00 00", gg.TYPE_BYTE)
+        gg.clearResults()
+        gg.toast("✅ PC LOGO ON")
+        pcState = true
+    else
+        gg.searchNumber("00 00 80 3F 00 00 00 00 00 00 00 00 00 00 80 BF 00 00 00 00 00 00 00 00", gg.TYPE_BYTE)
+        gg.getResults(100)
+        gg.editAll("00 00 80 3F 00 00 00 00 00 00 00 00 00 00 80 BF 00 00 00 00 00 00 80 BF", gg.TYPE_BYTE)
+        gg.clearResults()
+        gg.toast("❌ PC LOGO OFF")
+        pcState = false
+    end
+end
+
+function MENU_HOME()
+MENU_1 = gg.choice({
+"SPEED + FAST FIRE 🏃🏻"..SE,
+--"OBB 80% FIXED 🌪️",
+--"OBB OFF ❌",
+"CAMERA LEFT 50%➡️"..CA,
+"CAMERA LEFT 100%➡️"..CAM,
+"SLOW MOBMENT🚶"..SL,
+"FASTLAND + CAR FLY 🪂"..PA,
+"GLITCH FIRE 🕶️"..GF,
+"FAST SWITCH 🔁"..FAST,
+--"SCOPE X2 2️⃣"..XT,
+"SNIPER LOCATION 📍"..SN,
+"SPEED X2 🏃"..X2,
+"INVISIBLE WALL 🧊"..WALL,
+"PC LOGO 🖥️"..(pcState and " ✅" or " ❌"),
+"\nEXIT MENU \n",
+
+},nil,"𝗛𝗔𝗦𝗜𝗕 𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥 𝗩𝟭𝟬")
+if MENU_1 == nil then else
+if MENU_1 == 1 then SPEEDE() end
+if MENU_1 == 2 then CAMRA() end
+if MENU_1 == 3 then CAMERA() end
+if MENU_1 == 4 then TOGGLE_COMBO() end
+if MENU_1 == 5 then PARA() end
+if MENU_1 == 6 then GLITCH() end
+if MENU_1 == 7 then SWITCH() end
+if MENU_1 == 8 then SNLO() end
+if MENU_1 == 9 then SPEED() end
+if MENU_1 == 10 then GLOO() end
+if MENU_1 == 11 then PCLOGO() end
+if MENU_1 == 12 then Exit2() end
+end
+LAZ = -1
+end
+
+PA = off
+function PARA()
+if PA == off then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 80 7f 00 00 80 7f 00 00 80 7f 00 00 80 ff", gg.TYPE_BYTE)
+gg.getResults(2000)
+gg.editAll("h 00 00 00 00 00 00 ff 41 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 80 7f 00 00 80 7f 00 00 80 7f 00 00 80 ff", gg.TYPE_BYTE)
+gg.toast("✅ PARA SPEED ON")
+gg.clearResults()
+PA = on
+elseif PA == on then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h 00 00 00 00 00 00 ff 41 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 80 7f 00 00 80 7f 00 00 80 7f 00 00 80 ff", gg.TYPE_BYTE)
+gg.getResults(2000)
+gg.editAll("h 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 80 7f 00 00 80 7f 00 00 80 7f 00 00 80 ff", gg.TYPE_BYTE)
+PA = off
+gg.clearResults()
+gg.toast("❌ PARA SPEED OFF")
+end
+end
+
+CA = off
+function CAMRA()
+if CA == off then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 80 7f 00 00 80 7f 00 00 80 7f 00 00 80 ff", gg.TYPE_BYTE)
+gg.getResults(2000)
+gg.editAll("h 00 00 00 00 00 00 EF 3F 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 80 7f 00 00 80 7f 00 00 80 7f 00 00 80 ff", gg.TYPE_BYTE)
+gg.toast("✅ CAMERA 50% ON")
+gg.clearResults()
+CA = on
+elseif CA == on then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h 00 00 00 00 00 00 EF 3F 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 80 7f 00 00 80 7f 00 00 80 7f 00 00 80 ff", gg.TYPE_BYTE)
+gg.getResults(2000)
+gg.editAll("h 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 80 bf 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 80 bf 00 00 80 7f 00 00 80 7f 00 00 80 7f 00 00 80 ff", gg.TYPE_BYTE)
+CA = off
+gg.clearResults()
+gg.toast("❌ CAMERA 50% OFF")
+end
+end
+
+SN = off
+function SNLO()
+if SN == off then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h 19 00 00 00 69 00 6E 00 67 00 61 00 6D 00 65 00 2F 00 70 00 69 00 63 00 63 00 6B 00 75 00 70 00 2F 00 70 00 69 00 63 00 6B 00 75 00 70 00 5F 00 62 00 6D 00 39 00 34 00 00 00 00 00 00 00 00 00", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("h 1D 00 00 00 65 00 66 00 66 00 65 00 63 00 74 00 73 00 2F 00 76 00 66 00 78 00 5F 00 69 00 6E 00 61 00 67 00 6D 00 65 00 5F 00 6C 00 61 00 73 00 65 00 72 00 5F 00 73 00 68 00 6F 00 70 00", gg.TYPE_BYTE)
+gg.toast("✅ SNIPER LOCATION ON")
+gg.clearResults()
+SN = on
+elseif SN == on then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h 1D 00 00 00 65 00 66 00 66 00 65 00 63 00 74 00 73 00 2F 00 76 00 66 00 78 00 5F 00 69 00 6E 00 61 00 67 00 6D 00 65 00 5F 00 6C 00 61 00 73 00 65 00 72 00 5F 00 73 00 68 00 6F 00 70 00", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("h 19 00 00 00 69 00 6E 00 67 00 61 00 6D 00 65 00 2F 00 70 00 69 00 63 00 6B 00 75 00 70 00 2F 00 70 00 69 00 63 00 6B 00 75 00 70 00 5F 00 62 00 6D 00 39 00 34 00 00 00 00 00 00 00 00 00", gg.TYPE_BYTE)
+gg.toast("❌ SNIPER LOCATION OFF")
+gg.clearResults()
+SN = off
+end
+end
+
+SE = off
+function SPEEDE()
+if SE == off then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h 00 01 00 00 00 02 2B 07 3D")
+gg.getResults(10000)
+gg.editAll("h 00 01 00 00 00 02 2B 60 3D",gg.TYPE_BYTE)
+gg.toast("✅ SPEED TIMER X20 ON")
+SE = on
+elseif SE == on then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h 00 01 00 00 00 02 2B 60 3D",gg.TYPE_BYTE)
+gg.getResults(1000)
+gg.editAll("h 00 01 00 00 00 02 2B 07 3D",gg.TYPE_BYTE)
+gg.clearResults()
+SE = off
+gg.toast("❌ SPEED TIMER X20 OFF")
+end
+end
+
+CAM = off
+function CAMERA()
+if CAM == off then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h00 00 80 3F 00 00 00 00 00 00 00 00 00 00 80 BF 00 00 00 00 00 00 80 BF 00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00 00 00 00 00 00 00 80 BF 00 00 80 7F 00 00 80 7F 00 00 80 7F 00 00 80 FF", gg.TYPE_BYTE)
+gg.getResults(150.0)
+gg.editAll("h00 00 92 40 00 00 00 00 00 00 00 00 00 00 80 BF 00 00 00 00 00 00 80 BF 00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00 00 00 00 00 00 00 80 BF 00 00 80 7F 00 00 80 7F 00 00 80 7F 00 00 80 FF", gg.TYPE_BYTE)
+
+gg.toast("✅ CAMERA 100% ON")
+gg.clearResults()
+CAM = on
+elseif CAM == on then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h00 00 92 40 00 00 00 00 00 00 00 00 00 00 80 BF 00 00 00 00 00 00 80 BF 00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00 00 00 00 00 00 00 80 BF 00 00 80 7F 00 00 80 7F 00 00 80 7F 00 00 80 FF", gg.TYPE_BYTE)
+gg.getResults(150.0)
+gg.editAll("h00 00 80 3F 00 00 00 00 00 00 00 00 00 00 80 BF 00 00 00 00 00 00 80 BF 00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3F 00 00 00 00 00 00 00 00 00 00 80 BF 00 00 80 7F 00 00 80 7F 00 00 80 7F 00 00 80 FF", gg.TYPE_BYTE)
+gg.toast("❌ CAMERA 100% OFF")
+gg.clearResults()
+
+CAM = off
+end
+end
+
+GF = off
+function GLITCH()
+if GF == off then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("hC0 3F 00 00 00 3F 00 00 80 3F 00 00",gg.TYPE_BYTE)
+gg.getResults(1000)
+gg.editAll("h00 00 00 00 00 3F 00 00 80 3F 00 00",gg.TYPE_BYTE)
+GF = on
+gg.toast("✅ GLITCH FIRE ON")
+gg.clearResults()
+elseif GF == on then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h00 00 00 00 00 3F 00 00 80 3F 00 00",gg.TYPE_BYTE)
+gg.getResults(1000)
+gg.editAll("hC0 3F 00 00 00 3F 00 00 80 3F 00 00",gg.TYPE_BYTE)
+gg.clearResults()
+GF = off
+gg.toast("❌ GLITCH FIRE OFF")
+end
+end
+
+FAST = off
+function SWITCH()
+if FAST == off then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h3f 00 00 80 3e 00 00 00 00 04 00 00 00 00 00 80 3f 00 00 20 41 00 00 34 42 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f ",gg.TYPE_BYTE)
+gg.getResults(9999)
+gg.editAll("h01 00 00 80 00 00 00 00 00 04 00 00 00 00 00 80 3f 00 00 20 41 00 00 34 42 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f",gg.TYPE_BYTE)
+gg.toast("✅ FAST SWITCH ON")
+gg.clearResults()
+FAST = on
+elseif FAST == on then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h01 00 00 80 00 00 00 00 00 04 00 00 00 00 00 80 3f 00 00 20 41 00 00 34 42 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f",gg.TYPE_BYTE)
+gg.getResults(1000)
+gg.editAll("h3f 00 00 80 3e 00 00 00 00 04 00 00 00 00 00 80 3f 00 00 20 41 00 00 34 42 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f",gg.TYPE_BYTE)
+gg.toast("❌ FAST SWITCH OFF")
+gg.clearResults()
+FAST = off
+end
+end
+
+X2 = off
+function SPEED()
+if X2 == off then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber('h 00 00 5C 42 01 00 00 00 01 00 00 00 00 00 80 3F 00 00 00 00 00 00 80 3F 00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 00 00 9A 99 99 3F 00 00 80 3F 00 00 80 3F EC 51 38 3E 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F ',gg.TYPE_BYTE)
+gg.getResults(1000)
+gg.editAll('h 00 00 5C 42 01 00 00 00 01 00 00 00 00 00 80 3F 00 00 00 00 00 00 80 3F 00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 00 00 00 00 40 40 00 00 80 3F 00 00 80 3F EC 51 38 3E 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F ',gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast('✅ SPEED X2 ON')
+X2 = on
+elseif X2 == on then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber('h 00 00 5C 42 01 00 00 00 01 00 00 00 00 00 80 3F 00 00 00 00 00 00 80 3F 00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 00 00 00 00 40 40 00 00 80 3F 00 00 80 3F EC 51 38 3E 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F ',gg.TYPE_BYTE)
+gg.getResults(1000)
+gg.editAll('h 00 00 5C 42 01 00 00 00 01 00 00 00 00 00 80 3F 00 00 00 00 00 00 80 3F 00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 00 00 9A 99 99 3F 00 00 80 3F 00 00 80 3F EC 51 38 3E 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F ',gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast('❌ SPEED X2 OFF')
+X2 = off
+end
+end
+
+WALL = off
+function GLOO()
+if WALL == off then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h 23 00 00 00 69 00 6E 00 67 00 61 00 6D 00 65 00 2F 00 61 00 73 00 73 00 69 00 73 00 74 00 61 00 6E 00 74 00 69 00 74 00 65 00 6D 00 2F 00 69 00 63 00 65 00 77 00 61 00 6C 00 6C 00 5F 00 62 00 75 00 6E 00 6B 00 65 00 72 00",gg.TYPE_BYTE)
+gg.getResults(1000)
+gg.editAll("h 23 00 00 00 65 00 66 00 66 00 65 00 63 00 74 00 73 00 2F 00 76 00 66 00 78 00 5F 00 70 00 65 00 74 00 2F 00 76 00 66 00 78 00 5F 00 70 00 65 00 74 00 73 00 6B 00 69 00 6C 00 6C 00 5F 00 72 00 6F 00 62 00 6F 00 74 00 00 00",gg.TYPE_BYTE)
+gg.toast("✅ WALL GLOO ON")
+gg.clearResults()
+WALL = on
+elseif WALL == on then
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("h 23 00 00 00 65 00 66 00 66 00 65 00 63 00 74 00 73 00 2F 00 76 00 66 00 78 00 5F 00 70 00 65 00 74 00 2F 00 76 00 66 00 78 00 5F 00 70 00 65 00 74 00 73 00 6B 00 69 00 6C 00 6C 00 5F 00 72 00 6F 00 62 00 6F 00 74 00 00 00",gg.TYPE_BYTE)
+gg.getResults(1000)
+gg.editAll("h 23 00 00 00 69 00 6E 00 67 00 61 00 6D 00 65 00 2F 00 61 00 73 00 73 00 69 00 73 00 74 00 61 00 6E 00 74 00 69 00 74 00 65 00 6D 00 2F 00 69 00 63 00 65 00 77 00 61 00 6C 00 6C 00 5F 00 62 00 75 00 6E 00 6B 00 65 00 72 00",gg.TYPE_BYTE)
+gg.toast("❌ WALL GLOO OFF")
+gg.clearResults()
+WALL = off
+end
+end
+
+function Exit2()
+print("EXIT MENU ✅")
+print("GOOD BYE 👋🫂")
+os.exit()
+end
+
+while true do
+if gg.isVisible(true) then
+LAZ = 1
+gg.setVisible(false)
+end
+gg.clearResults()
+if LAZ == 1 then MENU_HOME() end
+end
